@@ -8,14 +8,12 @@ const btnBuscarPeso = document.querySelector('#btnBuscarPeso');
 const btnBuscarAltura = document.querySelector('#btnBuscarAltura')
 const btnBuscarImg = document.querySelector('#btnBuscarImg')
 const btnTipo = document.querySelector('#btnTipo')
-const btnMovimento = document.querySelector('#btnMovimento')
 
 btnBuscarHabilidade.addEventListener("click", () => buscarPokemon("habilidade"));
 btnBuscarPeso.addEventListener("click", () => buscarPokemon("peso"));
 btnBuscarAltura.addEventListener("click", () => buscarPokemon("altura"))
 btnBuscarImg.addEventListener('click', () => buscarPokemon("img"))
 btnTipo.addEventListener('click', () => buscarPokemon("tipo"))
-btnMovimento.addEventListener('click', () => buscarPokemon("movimento"))
 
 // Função principal
 function buscarPokemon(validacao) {
@@ -47,11 +45,6 @@ function buscarPokemon(validacao) {
         buscarTipo(nome);
         vazio()
     }
-    if (validacao == "movimento") {
-        buscarMovimento(nome);
-        vazio()
-    }
-
 }
 
 
@@ -122,19 +115,6 @@ function buscarTipo(nome) {
         });
 }
 
-function buscarMovimento(nome) {
-    console.log("chegou aqui")
-    fetch(`https://pokeapi.co/api/v2/move-damage-class/${nome}`)
-        .then(resposta => resposta.json())
-        .then(dados => {
-            const movimentos = dados.moves[0].name;
-            exibirPokemon(nome, movimentos)
-
-        })
-        .catch(() => {
-            resultado.innerHTML = "Pokémon não encontrado!";
-        });
-}
 
 // Exibe na tela
 function exibirPokemon(nome, busca) {
