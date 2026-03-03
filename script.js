@@ -19,7 +19,7 @@ btnTipo.addEventListener('click', () => buscarPokemon("tipo"))
 function buscarPokemon(validacao) {
     console.log(validacao)
     const nome = input.value.toLowerCase().trim();
-    if (nome === " ") {
+    if (nome === "") {
         resultado.innerHTML = "Digite um nome válido!";
         return;
     }
