@@ -21,6 +21,7 @@ function buscarPokemon(validacao) {
     const nome = input.value.toLowerCase().trim();
     if (nome === "") {
         resultado.innerHTML = "Digite um nome válido!";
+        vazio()
         return;
     }
     if (validacao == "habilidade") {
@@ -59,6 +60,7 @@ function buscarHabilidade(nome) {
         })
         .catch(() => {
             resultado.innerHTML = "Pokémon não encontrado!";
+            vazio()
         });
 }
 
@@ -72,6 +74,7 @@ function buscarPeso(nome) {
         })
         .catch(() => {
             resultado.innerHTML = "Pokémon não encontrado!";
+            vazio()
         });
 }
 function buscarAltura(nome) {
@@ -82,9 +85,11 @@ function buscarAltura(nome) {
             const altura = dados.height;
 
             exibirPokemon(nome, altura)
+            vazio()
         })
         .catch(() => {
             resultado.innerHTML = "Pokémon não encontrado!";
+            vazio()
         });
 }
 
@@ -100,6 +105,7 @@ function buscarImagem(nome) {
         })
         .catch(() => {
             resultado.innerHTML = "Pokémon não encontrado!";
+            vazio()
         });
 }
 
@@ -112,6 +118,7 @@ function buscarTipo(nome) {
         })
         .catch(() => {
             resultado.innerHTML = "Pokémon não encontrado!";
+            vazio()
         });
 }
 
